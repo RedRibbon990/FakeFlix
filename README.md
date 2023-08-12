@@ -1,4 +1,6 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="public/img/logo.png" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="# target="_blank"><img src="public/img/logo.png" width="400" alt="Laravel Logo"></a></p>
+
+<p align="center"><img src="public/img/ScreenFlow.gif" width="480" alt="Laravel Logo"></p>
 
 ## Esercizio per Ferragosto (da fare proprio il 15 sotto l'ombrellone)
 
