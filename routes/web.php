@@ -21,6 +21,6 @@ Route::get('/catalogo/{tipologia}', function () {
     return view('catalogue');
 });
 
-Route::get('/catalogo/{tipologia}/{uri}', function () {
+Route::get('/dettaglio-film/{uri}', function () {
     return view('detail');
 });
