@@ -7,51 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="/css/style.css" />
-
+</head>
 <body>
     <div class="wrapper overflow-hidden">
-        <header>
+    <header class="overflow-hidden">
             <div class="netflixLogo">
-                <a id="logo">
+                <a href="{{route('homepage')}}" id="logo">
                     <img src="/img/logo.png" alt="Logo Image">
                 </a>
             </div>
             <nav class="main-nav">
-                <a href="#">Home</a>
-                <a href="#">Serie TV</a>
-                <a href="#">Film</a>
+                <nav class="main-nav">
+                    <a href="{{route('homepage')}}">Home</a>
+                    <a href="{{route('lista',['tipology' => 'series'])}}">Serie TV</a>
+                    <a href="{{route('lista',['tipology' => 'films'])}}">Film</a>
+                </nav>
             </nav>
         </header>
 
         <section class="main-container overflow-hidden container">
             <h1>Film su FakeFlix</h1>
             <div class="box">
-                <a href="">
-                    <img width="380" src="/img/tv-series/breaking-bad.jpg" alt="">
+                @foreach ($data as $item)
+                <a href="{{ route('detail', ['uri' => $item['uri']]) }}">
+                <img width="380" src="{{$item['cover']}}" alt="">
                 </a>
-                <a href="">
-                    <img width="380" src="/img/tv-series/the-boys.jpg" alt="">
-                </a>
-
-                <a href="">
-                    <img width="380" src="/img/tv-series/don-matteo.jpg" alt="">
-                </a>
-                <a href="">
-                    <img width="380" src="/img/tv-series/friends.jpg" alt="">
-                </a>
-                <a href="">
-                    <img width="380" src="/img/tv-series/stranger.jpg" alt="">
-                </a>
-                <a href="">
-                    <img width="380" src="/img/tv-series/hof.jpg" alt="">
-                </a>
-                <a href="">
-                    <img width="380" src="/img/tv-series/the-office.jpg" alt="">
-                </a>
-                <a href="">
-                    <img width="380" src="/img/tv-series/cesaroni.jpg" alt="">
-                </a>
-
+                @endforeach
             </div>
         </section>
 

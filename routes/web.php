@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class, 'index'])->name('homepage');
 
-Route::get('/catalogo/{tipologia}', function () {
-    return view('catalogue');
-});
+Route::get('/catalogue/{tipology}', [PageController::class,'catalogue'])->name('lista');
 
-Route::get('/dettaglio-film/{uri}', function () {
-    return view('detail');
-});
+Route::get('/detail/{uri}', [PageController::class, 'detail'])->name('detail');

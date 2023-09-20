@@ -14,15 +14,15 @@
     <div class="wrapper overflow-hidden">
         <header class="overflow-hidden">
             <div class="netflixLogo">
-                <a id="logo">
+                <a href="{{route('homepage')}}" id="logo">
                     <img src="/img/logo.png" alt="Logo Image">
                 </a>
             </div>
             <nav class="main-nav">
                 <nav class="main-nav">
-                    <a href="#">Home</a>
-                    <a href="#">Serie TV</a>
-                    <a href="#">Film</a>
+                    <a href="{{route('homepage')}}">Home</a>
+                    <a href="{{route('lista',['tipology' => 'series'])}}">Serie TV</a>
+                    <a href="{{route('lista',['tipology' => 'films'])}}">Film</a>
                 </nav>
             </nav>
         </header>
@@ -34,7 +34,7 @@
                     Vuoi guardare Netflix? Inserisci l'indirizzo email per abbonarti o riattivare il tuo abbonamento.
                 </p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                    <button type="button" class="btn btn-danger btn-lg px-4 me-sm-3">Guarda i Film</button>
+                    <button type="button" class="btn btn-danger btn-lg px-4 me-sm-3"></a>Guarda i Film</button>
                     <button type="button" class="btn btn-outline-secondary btn-lg px-4">Guarda le Serie TV</button>
                 </div>
             </div>

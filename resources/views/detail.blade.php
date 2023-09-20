@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -5,33 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Netflix</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="/css/style.css" />
+</head>
 
 <body>
     <div class="wrapper overflow-hidden">
-        <header>
+        <header class="overflow-hidden">
             <div class="netflixLogo">
-                <a id="logo">
+                <a href="{{ route('homepage') }}" id="logo">
                     <img src="/img/logo.png" alt="Logo Image">
                 </a>
             </div>
             <nav class="main-nav">
-                <nav class="main-nav">
-                    <a href="#">Home</a>
-                    <a href="#">Serie TV</a>
-                    <a href="#">Film</a>
-                </nav>
+                <a href="{{ route('homepage') }}">Home</a>
+                <a href="{{ route('lista', ['tipology' => 'series']) }}">Serie TV</a>
+                <a href="{{ route('lista', ['tipology' => 'films']) }}">Film</a>
             </nav>
         </header>
 
         <section class="main-container overflow-hidden container">
             <div class="main-container">
-                <img width="380" src="/img/films/barbie.jpg" alt="">
+                <img width="380" src="{{ $item['cover'] }}" alt="">
             </div>
             <div class="container">
-                <h1>Nome Film</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                <h1>{{ $item['name'] }}</h1>
+                <p>{{ $item[0] }}</p>
             </div>
         </section>
 
