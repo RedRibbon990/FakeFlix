@@ -7,25 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
     <link rel="stylesheet" href="/css/style.css" />
 
 <body>
     <div class="wrapper overflow-hidden">
-        <header class="overflow-hidden">
-            <div class="netflixLogo">
-                <a href="{{route('homepage')}}" id="logo">
-                    <img src="/img/logo.png" alt="Logo Image">
-                </a>
-            </div>
-            <nav class="main-nav">
-                <nav class="main-nav">
-                    <a href="{{route('homepage')}}">Home</a>
-                    <a href="{{route('lista',['tipology' => 'series'])}}">Serie TV</a>
-                    <a href="{{route('lista',['tipology' => 'films'])}}">Film</a>
-                </nav>
-            </nav>
-        </header>
+
+        <x-header></x-header>
 
         <div class="px-4 pt-5 my-5 text-center border-bottom">
             <h1 class="display-4 fw-bold">Film, serie TV e tanto altro.<br> Senza limiti.</h1>
@@ -34,8 +21,8 @@
                     Vuoi guardare Netflix? Inserisci l'indirizzo email per abbonarti o riattivare il tuo abbonamento.
                 </p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                    <button type="button" class="btn btn-danger btn-lg px-4 me-sm-3"></a>Guarda i Film</button>
-                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Guarda le Serie TV</button>
+                    <a href="{{route('lista', ['tipologia' => 'films'])}}" class="btn btn-danger btn-lg px-4 me-sm-3">Guarda i Film</a>
+                    <a href="{{route('lista', ['tipologia' => 'series'])}}" class="btn btn-outline-secondary btn-lg px-4">Guarda le Serie TV</a>
                 </div>
             </div>
             <div class="overflow-hidden" style="max-height: 30vh;">
@@ -46,9 +33,9 @@
             </div>
         </div>
 
-        <footer>
-
-        </footer>
+        <x-footer>
+            <x-slot name="container"></x-slot>
+        </x-footer>
     </div>
 </body>
 

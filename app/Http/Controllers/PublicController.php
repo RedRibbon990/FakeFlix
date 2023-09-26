@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PageController extends Controller
+class PublicController extends Controller
 {
     protected static $database = [
         'films' => [
@@ -19,7 +19,7 @@ class PageController extends Controller
         'series' => [
             ['uri' => 'breaking-bad', 'name' => 'Breaking bad', 'cover' => '/img/tv-series/breaking-bad.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore'],
             ['uri' => 'cesaroni', 'name' => 'cesaroni', 'cover' => '/img/tv-series/cesaroni.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore'],
-            ['uri' => 'dahmer', 'name' => 'Dhamer', 'cover' => '/img/tv-series/dhahmer.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore'],
+            ['uri' => 'dahmer', 'name' => 'Dhamer', 'cover' => '/img\tv-series\dahmer.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore'],
             ['uri' => 'don-matteo', 'name' => 'Don Matteo', 'cover' => '/img/tv-series/don-matteo.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore'],
             ['uri' => 'hof', 'name' => 'House of the Dragon', 'cover' => '/img/tv-series/hof.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore'],
             ['uri' => 'stranger', 'name' => 'Stranger Things', 'cover' => '/img/tv-series/stranger.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore'],
@@ -28,22 +28,28 @@ class PageController extends Controller
         ],
     ];
 
-    public function index()
+    public function homepage()
     {
-        return view('welcome');
+        return view('template.welcome');
     }
 
-    public function catalogue($tipology)
+    public function catalogue($tipologia)
     {
-        return view('catalogue', ['data' => self::$database[$tipology]]);
+
+
+        //dd($database[$tipologia][1]['name']);
+        //dd($database[$tipologia]);
+        return view('template.catalogue', ['data' => self::$database[$tipologia]]);
     }
 
     public function detail($uri)
     {
-        foreach (self::$database as $key => $type) {
-            foreach ($type as $key => $item) {
-                if($item['uri'] == $uri) {
-                    return view('detail', ['item' => $item]);
+        //Cercare uri dentro array
+
+        foreach (self::$database as $type) {
+            foreach ($type as $item) {
+                if ($item['uri'] == $uri) {
+                    return view('template.detail', ['item' => $item]);
                 }
             }
         }
@@ -51,9 +57,3 @@ class PageController extends Controller
     }
 }
 
-/*
-public function catalogue($tipology)
-{
-    $database = []
-}
-*/

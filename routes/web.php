@@ -1,6 +1,6 @@
 <?php
-
-use App\Http\Controllers\PageController;
+/* Include */
+use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PageController::class, 'index'])->name('homepage');
+Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
-Route::get('/catalogue/{tipology}', [PageController::class,'catalogue'])->name('lista');
+Route::get('/catalogo/{tipologia}', [PublicController::class, 'catalogue'])->name('lista');
 
-Route::get('/detail/{uri}', [PageController::class, 'detail'])->name('detail');
+Route::get('/dettaglio-film/{uri}', [PublicController::class, 'detail'])->name('dettaglio');
